@@ -1,0 +1,928 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 30px;
+    background-color: black
+}
+
+.menu {
+    display: flex;
+    gap: 25px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.menu a:hover {
+    color: #ccc;
+}
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.logo span {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.carrossel {
+    position: relative;
+    width: 80%;
+    max-width: 1000px;
+    height: 500px;
+    margin: 50px auto;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.slides {
+    display: flex;
+    width: 400%;
+    height: 100%;
+    transition: transform 0.5s ease;
+}
+
+.slides img {
+    width: 25%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.carrossel button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 30px;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.anterior {
+    left: 10px;
+}
+
+.proximo {
+    right: 10px;
+}
+.apresentacao {
+    text-align: center;
+    max-width: 700px;
+    margin: 60px auto;
+    padding: 20px;
+}
+
+.apresentacao h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.apresentacao p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.botao {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #222;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.botao:hover {
+    background-color: #444;
+}
+.titulo-galeria {
+    text-align: center;
+    margin: 40px 0;
+    font-size: 35px;
+}
+
+.galeria {
+    width: 90%;
+    max-width: 1400px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.galeria img {
+    width: 100%;
+    height: 300px;
+
+    object-fit: cover;
+
+    border-radius: 10px;
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.galeria img:hover {
+    transform: scale(1.03);
+}
+
+
+/* Fundo da imagem aberta */
+
+.modal {
+    display: none;
+
+    position: fixed;
+    z-index: 1000;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.9);
+
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Imagem grande */
+
+.imagem-modal {
+    max-width: 90%;
+    max-height: 90%;
+
+    object-fit: contain;
+}
+
+
+/* Botão X */
+
+.fechar {
+    position: absolute;
+
+    top: 20px;
+    right: 40px;
+
+    color: white;
+    font-size: 50px;
+
+    cursor: pointer;
+}
+
+/* =========================
+   SOBRE A KIT
+========================= */
+
+.sobre {
+    width: 90%;
+    max-width: 1200px;
+    margin: 80px auto;
+
+    display: flex;
+    align-items: center;
+    gap: 70px;
+}
+
+.sobre-imagem {
+    width: 400px;
+    flex-shrink: 0;
+}
+
+.sobre-imagem img {
+    width: 100%;
+    height: 400px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+}
+
+.sobre-texto {
+    flex: 1;
+}
+
+.sobre-texto h1 {
+    font-size: 45px;
+    margin-bottom: 25px;
+}
+
+.sobre-texto p {
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+
+/* =========================
+   ESTILO ARTÍSTICO
+========================= */
+
+.estilo {
+    width: 90%;
+    max-width: 1200px;
+    margin: 100px auto;
+
+    text-align: center;
+}
+
+.estilo h2,
+.processo h2,
+.experiencia h2,
+.redes h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.estilo > p {
+    max-width: 700px;
+    margin: 0 auto 50px;
+
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.estilos {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.estilo-card {
+    padding: 35px;
+
+    border-radius: 15px;
+
+    background-color: #f2f2f2;
+
+    transition: 0.3s;
+}
+
+.estilo-card:hover {
+    transform: translateY(-5px);
+}
+
+.estilo-card h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.estilo-card p {
+    line-height: 1.5;
+}
+
+
+/* =========================
+   PROCESSO CRIATIVO
+========================= */
+
+.processo {
+    width: 90%;
+    max-width: 1400px;
+
+    margin: 100px auto;
+
+    text-align: center;
+}
+
+.processo > p {
+    font-size: 18px;
+
+    max-width: 700px;
+
+    margin: 0 auto 50px;
+}
+
+.etapas {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+.etapa img {
+    width: 100%;
+    height: 280px;
+
+    object-fit: cover;
+
+    border-radius: 12px;
+}
+
+.etapa h3 {
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.etapa p {
+    margin: 0;
+}
+
+
+/* =========================
+   EXPERIÊNCIA
+========================= */
+
+.experiencia {
+    width: 90%;
+    max-width: 900px;
+
+    margin: 100px auto;
+}
+
+.experiencia h2 {
+    text-align: center;
+}
+
+.experiencia-item {
+    display: flex;
+
+    gap: 30px;
+
+    padding: 30px 0;
+
+    border-bottom: 1px solid #ddd;
+}
+
+.ano {
+    font-size: 25px;
+    font-weight: bold;
+
+    min-width: 80px;
+}
+
+.experiencia-item h3 {
+    margin-bottom: 10px;
+}
+
+.experiencia-item p {
+    line-height: 1.6;
+}
+
+
+/* =========================
+   REDES SOCIAIS
+========================= */
+
+.redes {
+    text-align: center;
+
+    margin: 100px auto;
+
+    width: 90%;
+}
+
+.redes p {
+    font-size: 18px;
+
+    margin-bottom: 30px;
+}
+
+.redes-links {
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 15px;
+}
+
+.redes-links a {
+    text-decoration: none;
+
+    color: white;
+
+    background-color: #222;
+
+    padding: 12px 25px;
+
+    border-radius: 8px;
+
+    transition: 0.3s;
+}
+
+.redes-links a:hover {
+    background-color: #444;
+}
+
+
+/* =========================
+   RODAPÉ
+========================= */
+
+footer {
+    text-align: center;
+
+    padding: 30px;
+
+    margin-top: 100px;
+
+    background-color: #222;
+
+    color: white;
+}
+
+.comissoes {
+    width: 90%;
+    max-width: 1200px;
+    margin: 70px auto;
+}
+
+
+/* TÍTULO */
+
+.titulo-comissoes {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.titulo-comissoes h1 {
+    font-size: 45px;
+    margin-bottom: 10px;
+}
+
+.titulo-comissoes p {
+    font-size: 18px;
+}
+
+
+/* PREÇOS */
+
+.precos {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 30px;
+}
+
+.idioma {
+    padding: 35px;
+
+    border-radius: 15px;
+
+    background-color: #f2f2f2;
+}
+
+.idioma h2 {
+    text-align: center;
+
+    font-size: 28px;
+
+    margin-bottom: 35px;
+}
+
+.idioma h3 {
+    font-size: 22px;
+
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+
+/* CADA PREÇO */
+
+.preco {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 15px 0;
+
+    border-bottom: 1px solid #ddd;
+}
+
+.preco span {
+    font-size: 16px;
+}
+
+.preco strong {
+    white-space: nowrap;
+}
+
+
+/* REGRAS */
+
+.regras {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 30px;
+
+    margin-top: 50px;
+}
+
+.regra {
+    padding: 30px;
+
+    border-radius: 15px;
+
+    background-color: #f2f2f2;
+
+    text-align: center;
+}
+
+.regra h2 {
+    margin-bottom: 15px;
+}
+
+
+/* INFORMAÇÕES */
+
+.informacoes {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 20px;
+
+    margin-top: 30px;
+}
+
+.info {
+    padding: 25px;
+
+    border-radius: 15px;
+
+    background-color: #f2f2f2;
+
+    text-align: center;
+}
+
+.info h2 {
+    font-size: 21px;
+
+    margin-bottom: 15px;
+}
+
+.info p {
+    margin: 8px 0;
+}
+
+.info small {
+    display: block;
+
+    margin-top: 15px;
+
+    line-height: 1.5;
+}
+
+.contato {
+    width: 90%;
+    max-width: 1000px;
+    margin: 70px auto;
+}
+
+.titulo-contato {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 60px;
+}
+
+.titulo-contato h1 {
+    font-size: 45px;
+    margin-bottom: 15px;
+}
+
+.titulo-contato p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+
+/* REDES SOCIAIS */
+
+.redes-contato {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.rede {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    padding: 30px;
+
+    background-color: #f2f2f2;
+    border-radius: 15px;
+
+    color: inherit;
+    text-decoration: none;
+
+    transition: 0.3s;
+}
+
+.rede:hover {
+    transform: translateY(-5px);
+}
+
+.rede-icone {
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #222;
+    color: white;
+
+    border-radius: 50%;
+
+    font-size: 25px;
+    font-weight: bold;
+
+    flex-shrink: 0;
+}
+
+.rede h2 {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.rede p {
+    margin: 0;
+    color: #555;
+}
+
+
+/* COMISSÕES */
+
+.contato-comissao {
+    text-align: center;
+
+    margin: 70px auto 40px;
+    padding: 40px;
+
+    border-radius: 15px;
+    background-color: #f2f2f2;
+}
+
+.contato-comissao h2 {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.contato-comissao p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.botao-contato {
+    display: inline-block;
+
+    padding: 13px 28px;
+
+    background-color: #222;
+    color: white;
+
+    text-decoration: none;
+    border-radius: 8px;
+
+    transition: 0.3s;
+}
+
+.botao-contato:hover {
+    background-color: #444;
+}
+
+@media (max-width: 800px) {
+
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    nav {
+        padding: 10px 15px;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .logo img {
+        width: 42px;
+        height: 42px;
+    }
+
+    .logo span {
+        font-size: 18px;
+    }
+
+    .menu {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px 18px;
+    }
+
+    .menu a {
+        font-size: 14px;
+    }
+
+    .carrossel {
+        width: 95%;
+        height: 350px;
+        margin: 30px auto;
+    }
+
+    .carrossel button {
+        font-size: 22px;
+        padding: 7px 10px;
+    }
+
+    .apresentacao {
+        width: 90%;
+        margin: 40px auto;
+        padding: 10px;
+    }
+
+    .apresentacao h1 {
+        font-size: 28px;
+    }
+
+    .apresentacao p {
+        font-size: 16px;
+    }
+
+    .galeria {
+        width: 94%;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .galeria img {
+        height: 180px;
+    }
+
+    .fechar {
+        top: 10px;
+        right: 20px;
+        font-size: 40px;
+    }
+
+    .sobre {
+        width: 90%;
+        margin: 50px auto;
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .sobre-imagem {
+        width: 250px;
+        max-width: 80vw;
+    }
+
+    .sobre-imagem img {
+        height: 250px;
+    }
+
+    .sobre-texto h1 {
+        font-size: 32px;
+    }
+
+    .sobre-texto p {
+        font-size: 16px;
+    }
+
+    .estilo {
+        width: 90%;
+        margin: 60px auto;
+    }
+
+    .estilo h2,
+    .processo h2,
+    .experiencia h2,
+    .redes h2 {
+        font-size: 28px;
+    }
+
+    .estilos {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .processo {
+        width: 90%;
+        margin: 60px auto;
+    }
+
+    .etapas {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+
+    .etapa img {
+        height: 200px;
+    }
+
+    .experiencia {
+        width: 90%;
+        margin: 60px auto;
+    }
+
+    .experiencia-item {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .redes {
+        width: 90%;
+        margin: 60px auto;
+    }
+
+    .comissoes {
+        width: 92%;
+        margin: 40px auto;
+    }
+
+    .titulo-comissoes h1 {
+        font-size: 32px;
+    }
+
+    .precos {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .idioma {
+        padding: 25px 20px;
+    }
+
+    .regras {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .informacoes {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .contato {
+        width: 92%;
+        margin: 40px auto;
+    }
+
+    .titulo-contato h1 {
+        font-size: 32px;
+    }
+
+    .redes-contato {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .rede {
+        padding: 22px;
+    }
+
+    .contato-comissao {
+        margin: 45px auto 30px;
+        padding: 30px 20px;
+    }
+
+    footer {
+        margin-top: 60px;
+        padding: 25px 15px;
+    }
+}
